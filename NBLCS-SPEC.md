@@ -98,15 +98,6 @@ None of these exist in the NBLCS customer backend.
 
 ---
 
-## 4. Candidate Architectures
-
-1. **Custodial issuer with Nano as accounting ledger** · Core mechanism: a central issuer holds Bitcoin in cold storage and issues Nano-denominated claims. Payments are Nano transfers that update the issuer's ledger, which tracks each user's Bitcoin balance. · Where Bitcoin sits: in the issuer's cold wallet (reserve). · Dominant failure mode: issuer insolvency, theft, or regulatory seizure.
-2. **Atomic-swap hub with pre-signed PSBTs** · Core mechanism: hub and user create a 2-of-2 multi-sig channel funded with Bitcoin. State updates are recorded via Nano transfers. Pre-signed Bitcoin transactions are held but only broadcast on dispute. · Dominant failure mode: hub liquidity risk or race conditions between Nano confirmation and stale Bitcoin broadcast.
-3. **Federated multi-sig custody keyed to Nano account activity** · Core mechanism: a federation of N signers controls a multi-sig Bitcoin address. Users have Nano accounts; the federation monitors Nano transfers to update Bitcoin claims. · Dominant failure mode: collusion among federation members, or unavailability of a threshold of signers.
-4. **Exchange-rail settlement** · Core mechanism: an exchange holds Bitcoin and uses Nano as an internal settlement token between user accounts. · Dominant failure mode: exchange hack, withdrawal freeze, or insolvency.
-5. **Hybrid cold-custody-plus-Nano-float** · Core mechanism: the operator keeps the majority of Bitcoin in cold storage and a small amount in a hot wallet. Nano is used for settlement between users, and the hot wallet is replenished as needed. · Dominant failure mode: hot wallet depletion or cold storage compromise.
-
----
 
 ## 5. Selection Criteria and Priority
 
