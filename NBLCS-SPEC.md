@@ -53,7 +53,7 @@ None of these exist in the NBLCS customer backend.
 
 ### 2.1 Nano Usable Properties
 
-1. Near-instant finality: representative quorum (50% online vote weight) confirms blocks in 0.3–1.2s typical, p95 3s, p99 8s; once cemented, irreversible.
+1. Near-instant finality: representative quorum (68% online vote weight) confirms blocks in 0.3–1.2s typical, p95 3s, p99 8s; once cemented, irreversible.
 2. Zero fees: transfers cost only PoW computation, no miner/validator fees, full amount transferred.
 3. Account-based block lattice: each account has its own chain, send/receive semantics: send reduces balance, creates pending; receive claims it, increasing balance.
 4. Dynamic PoW anti-spam: work difficulty adjusts based on network load; current minimum 8 leading zero bits for send/receive, 5 for change; typical PoW ~2s on CPU.
