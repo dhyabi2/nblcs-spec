@@ -7,9 +7,6 @@ Propose a Nano tech stack that makes Bitcoin LN work again by REPLACING its back
 - Do NOT run a custom Nano node — rely only on the live Nano network.
 - The result must actually be secure and workable (not merely look like Bitcoin LN).
 
-Give the complete Nano-based tech stack that replaces Bitcoin LN's backend while keeping the customer-facing Bitcoin interface unchanged, and explain how the components fit together.
-
-
 
 # Nano-Based Bitcoin Lightning Compatibility Stack (NBLCS)
 
