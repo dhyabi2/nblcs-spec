@@ -98,7 +98,7 @@ None of these exist in the NBLCS customer backend.
 
 
 
-**Federated multi-sig custody keyed to Nano account activity, with a Lightning Interop Service (LIS) for external Bitcoin Lightning interoperability.**
+##  **Federated multi-sig custody keyed to Nano account activity, with a Lightning Interop Service (LIS) for external Bitcoin Lightning interoperability.**
 
 The core NBLCS backend replaces LN's channel-based state with a simple custodial model: customer balances are Bitcoin-denominated claims tracked by Nano account activity; Bitcoin sits in a federation-controlled multi-sig custody pool; internal payments are final Nano transfers; on-chain Bitcoin deposits and withdrawals are plain Bitcoin transactions.
 
