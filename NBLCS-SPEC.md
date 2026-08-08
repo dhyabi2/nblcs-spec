@@ -374,7 +374,7 @@ If the public Lightning Network is degraded by jamming or routing attacks, exter
 - **Internal payment**: Customer A pays Customer B → system creates a send block from A's Nano account to B's Nano account → B receives → both balances updated.
 - **External inbound**: LLP confirms inbound Lightning payment → reserve account sends Nano to customer's Nano account, increasing the customer's claim.
 - **External outbound**: LLP confirms outbound Lightning payment → customer's Nano account sends Nano to a reserve account, reducing the customer's claim.
-- **Withdrawal**: User requests withdrawal → user's Nano account sends Nano to reserve → after Nano confirmation, custody pool broadcasts Bitcoin withdrawal.
+- **Withdrawal**: User requests withdrawal → user's Nano account sends Nano to reserve → after Nano Instant confirmation, custody pool broadcasts Bitcoin withdrawal.
 
 ### 9.3 PoW Policy
 
@@ -392,7 +392,7 @@ If the public Lightning Network is degraded by jamming or routing attacks, exter
 ### 9.5 Confirmation Threshold
 
 - A Nano block is final when cemented and at least 2 seconds have passed since cementing was observed from a majority of public RPCs.
-- Ledger-affecting operations require 10 cemented Nano confirmations and cross-checking with at least 3 public nodes.
+- Ledger-affecting operations require 10 cemented Nano Instant confirmations and cross-checking with at least 3 public nodes.
 
 ### 9.6 Public Infrastructure Usage
 
@@ -452,7 +452,7 @@ If the public Lightning Network is degraded by jamming or routing attacks, exter
 2. Independent per-payment Nano sends: each internal payment is a single Nano transaction directly from payer to payee. No shared liquidity pool, no HTLC slots.
 3. No force-close path: there is no channel state to close.
 4. Nano representative diversification: 10+ representatives, each <10% vote weight.
-5. Confirmation depth: 10 Nano confirmations + cross-check with 3 public nodes.
+5. Confirmation depth: 10 Nano Instant confirmations + cross-check with 3 public nodes.
 6. Cold multi-sig custody with spend limits.
 7. Proof-of-reserve: weekly Merkle tree of Bitcoin pool UTXOs and LLP receivables published and verified against total claims.
 8. Authenticated RPC: TLS, API keys, signed LLP callbacks, multi-node Nano queries, blacklisting of inconsistent nodes.
@@ -514,7 +514,7 @@ NANO-BASED BITCOIN LIGHTNING COMPATIBILITY STACK (NBLCS)
 
 **Confirmation policy:**
 
-- 10 cemented Nano confirmations + 2-second buffer + majority agreement across 3 public nodes.
+- 10 cemented Nano Instant confirmations + 2-second buffer + majority agreement across 3 public nodes.
 
 #### 11.1.3 Bitcoin Custody Pool
 
@@ -583,7 +583,7 @@ NANO-BASED BITCOIN LIGHTNING COMPATIBILITY STACK (NBLCS)
 
 **Metrics:**
 
-- Nano confirmation rate
+- Nano Instant confirmation rate
 - Bitcoin confirmation rate
 - Hot wallet balance
 - Reserve ratio
@@ -600,7 +600,7 @@ NANO-BASED BITCOIN LIGHTNING COMPATIBILITY STACK (NBLCS)
 - Hot wallet < 2% of reserve → trigger rebalance.
 - LLP collateral below threshold → pause that LLP.
 - LLP callback missing → alert and reconcile.
-- Nano confirmation > 5s → alert PoW service.
+- Nano Instant confirmation > 5s → alert PoW service.
 - RPC node inconsistency → blacklist node, alert.
 - Ledger invariant violation → freeze operations, alert.
 
@@ -615,7 +615,7 @@ NANO-BASED BITCOIN LIGHTNING COMPATIBILITY STACK (NBLCS)
 5. Ledger computes `nano_amount = btc_amount × rate`.
 6. NSS sends Nano from reserve to customer's Nano account.
 7. NSS creates receive block on customer's account.
-8. After Nano confirmations, ledger credits customer's BTC balance.
+8. After Nano Instant confirmations, ledger credits customer's BTC balance.
 9. Customer sees updated `getbalance`.
 
 #### 11.2.2 Internal Payment
@@ -657,7 +657,7 @@ NANO-BASED BITCOIN LIGHTNING COMPATIBILITY STACK (NBLCS)
 1. Customer calls `sendtoaddress` with a Bitcoin address and amount.
 2. Gateway checks balance and debits the customer's Nano balance.
 3. NSS sends Nano from customer to reserve.
-4. After 10 Nano confirmations, ledger marks withdrawal pending.
+4. After 10 Nano Instant confirmations, ledger marks withdrawal pending.
 5. If amount ≤ 5 BTC, hot wallet signs and broadcasts.
 6. If amount > 5 BTC, cold wallet signs with manual approval.
 7. Ledger marks withdrawal complete.
@@ -674,7 +674,7 @@ NANO-BASED BITCOIN LIGHTNING COMPATIBILITY STACK (NBLCS)
 
 | Parameter | Value |
 |---|---|
-| Nano confirmation threshold | 10 confirmations + 2s buffer |
+| Nano Instant confirmation threshold | 10 confirmations + 2s buffer |
 | Bitcoin deposit confirmations | 6 |
 | Bitcoin withdrawal confirmations | 1 (broadcast) |
 | Exchange rate update | every 10 minutes |
@@ -705,7 +705,7 @@ NANO-BASED BITCOIN LIGHTNING COMPATIBILITY STACK (NBLCS)
 
 - Check reserve ratio ≥ 110%.
 - Verify hot wallet balance within 2–10% of reserve.
-- Check Nano confirmation rates.
+- Check Nano Instant confirmation rates.
 - Check LLP health and collateral ratios.
 - Review PoW queue depth.
 
