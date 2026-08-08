@@ -96,24 +96,7 @@ None of these exist in the NBLCS customer backend.
 5. Unique spendability of the current state: exactly one key can spend a channel's funds at any moment, and that key can only produce the current state; old states are structurally unspendable, so broadcasting them is impossible.
 6. Deterministic conflict resolution by ledger rules: if claims conflict, the network's consensus (vote weight, block height) decides automatically, invalidating older or conflicting claims without fee competition or first-seen ordering.
 
----
 
-
-## 5. Selection Criteria and Priority
-
-1. **Structural immunity to pinning, jamming, and force-close races** (weight 10/10): no mempool dependence, no timelocks, no multi-hop escrow, no shared liquidity pools, unique spendability, deterministic conflict resolution.
-2. **Byte-identical customer-facing Bitcoin interface** (weight 10/10): customers must send and receive Bitcoin exactly as before, including external Lightning invoices.
-3. **Bounded adversarial security** (weight 9/10): beyond the three named attacks, resist double-spend attempts, Sybil attacks, Nano manipulation, custody theft, and LLP default, with formal bounds on loss.
-4. **End-to-end latency** (weight 7/10): target <10 seconds typical, <60 seconds for large settlements.
-5. **Operational cost and reserve burden** (weight 6/10): minimize locked capital and operational overhead.
-6. **Operational simplicity** (weight 5/10): runnable by a single operator with standard infrastructure, no custom Nano node.
-7. **Uses only the live Nano network** (weight 10/10 as a hard gate): no custom Nano node, sidechain, or testnet.
-
----
-
-## 6. Architecture Decision
-
-### 6.1 Chosen Architecture
 
 **Federated multi-sig custody keyed to Nano account activity, with a Lightning Interop Service (LIS) for external Bitcoin Lightning interoperability.**
 
