@@ -615,7 +615,7 @@ NANO-BASED BITCOIN LIGHTNING COMPATIBILITY STACK (NBLCS)
 5. Ledger computes `nano_amount = btc_amount × rate`.
 6. NSS sends Nano from reserve to customer's Nano account.
 7. NSS creates receive block on customer's account.
-8. After 10 Nano confirmations, ledger credits customer's BTC balance.
+8. After Nano confirmations, ledger credits customer's BTC balance.
 9. Customer sees updated `getbalance`.
 
 #### 11.2.2 Internal Payment
