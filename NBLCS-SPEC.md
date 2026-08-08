@@ -1,5 +1,3 @@
-# Answer — 2026-08-08
-
 ## Problem
 
 Bitcoin Lightning Network implementations are failing under attacks (pinning, jamming, force-close races) that AI has helped surface. I am a NANO (XNO) fan and believe Nano — zero-fee and fast — can serve as the backend under the tech so customers affected by Bitcoin LN's shutdown can keep operating.
@@ -11,27 +9,7 @@ Propose a Nano tech stack that makes Bitcoin LN work again by REPLACING its back
 
 Give the complete Nano-based tech stack that replaces Bitcoin LN's backend while keeping the customer-facing Bitcoin interface unchanged, and explain how the components fit together.
 
-## How to read this
 
-This is the highest-scoring answer the run produced (iteration 1, final stage), scored **100/100** by the verifier.
-
-## Verifier ruling
-
-> The answer delivers a complete, buildable, secure Nano-backed replacement for the Bitcoin LN backend that preserves the customer-facing Bitcoin interface byte-for-byte, uses only the live Nano network, and closes the external Lightning interoperability gap with a concrete LLP-based mechanism.
-
-### Deliverable coverage
-
-- ✅ Complete Nano tech stack replacing Bitcoin LN's backend — _Full stack specified: Bitcoin Gateway API, Nano Settlement Service, Bitcoin Custody Pool, Reconciliation Ledger, Lightning Interop Service, Reserve Manager, Monitoring — with schemas, flows, config values, roadmap, and verification plan._
-- ✅ Customer-facing Bitcoin interface stays exactly the same — _BOLT11 invoices, bc1 deposit addresses, payinvoice/sendtoaddress/getbalance/listtransactions, invoice expiry, amountless invoices, and LND-compatible error codes are all preserved via shim implementations._
-- ✅ Do NOT run a custom Nano node — rely only on the live Nano network — _Uses public RPCs (rpc.nano.org, nanocrawler.cc, mynano.ninja) with majority agreement; explicitly states no custom Nano node is run._
-- ✅ Result must actually be secure and workable — _Threat model, defeat controls, structural attack analysis for pinning/jamming/force-close, collateralized LLPs, proof-of-reserve, and a verification plan with attack drills are provided._
-- ✅ Explain how components fit together — _End-to-end flows for deposit, internal payment, external inbound, external outbound, withdrawal, and LLP net settlement are specified in detail._
-
-_Graph: 55 stages, 55 solved._
-
----
-
-## The answer
 
 # Nano-Based Bitcoin Lightning Compatibility Stack (NBLCS)
 
@@ -845,8 +823,3 @@ This satisfies the unchanged-Bitcoin-interface constraint for real-world Lightni
 **End of NBLCS Specification.**
 
 ---
-
-## Other attempts this run produced
-
-- iteration 1 (repair): scored 100/100 — 46,211 chars
-- iteration 1 (synthesis): scored 78/100 — 60,460 chars
